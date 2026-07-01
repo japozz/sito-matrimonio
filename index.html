@@ -387,17 +387,28 @@
 </footer>
 
 <script>
-  // Reveal lettera per lettera del nome in hero
+  // Reveal lettera per lettera del nome in hero (per parola, cosi' non spezza mai una parola a meta')
   (function () {
     const el = document.getElementById('hero-name');
     const text = el.textContent.trim();
     el.innerHTML = '';
-    [...text].forEach((char, i) => {
-      const span = document.createElement('span');
-      span.className = 'hero-letter';
-      span.style.animationDelay = (i * 0.05) + 's';
-      span.textContent = char === ' ' ? ' ' : char;
-      el.appendChild(span);
+    let i = 0;
+    text.split(/(\s+)/).forEach((token) => {
+      if (/^\s+$/.test(token)) {
+        el.appendChild(document.createTextNode(' '));
+        return;
+      }
+      const word = document.createElement('span');
+      word.className = 'whitespace-nowrap';
+      [...token].forEach((char) => {
+        const span = document.createElement('span');
+        span.className = 'hero-letter';
+        span.style.animationDelay = (i * 0.05) + 's';
+        span.textContent = char;
+        word.appendChild(span);
+        i++;
+      });
+      el.appendChild(word);
     });
   })();
 
