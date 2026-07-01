@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Valeria & Jacopo — 24 Agosto 2026</title>
+<meta name="description" content="Valeria e Jacopo si sposano il 24 agosto 2026. Scopri il menù e conferma la tua presenza.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#DB2777',
+          secondary: '#F472B6',
+          gold: '#CA8A04',
+          cream: '#FDF2F8',
+          ink: '#831843'
+        },
+        fontFamily: {
+          script: ['"Great Vibes"', 'cursive'],
+          serif: ['"Cormorant Infant"', 'serif']
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+  body { font-family: 'Cormorant Infant', serif; }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  .grain::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  @keyframes digit-pop {
+    0% { transform: scale(1.2); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .digit-pop { animation: digit-pop 0.35s ease; }
+
+  .hero-letter {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: letter-in 0.7s ease forwards;
+  }
+  @keyframes letter-in {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes petal-fall {
+    0% { transform: translateY(-10%) translateX(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 0.8; }
+    90% { opacity: 0.6; }
+    100% { transform: translateY(120vh) translateX(var(--drift, 40px)) rotate(180deg); opacity: 0; }
+  }
+  .petal {
+    position: absolute;
+    top: -5%;
+    border-radius: 100% 0 100% 0;
+    animation: petal-fall linear infinite;
+  }
+</style>
+</head>
+<body class="bg-cream text-ink">
+
+<!-- CTA fluttuante -->
+<a href="#rsvp"
+   class="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 bg-primary hover:bg-ink text-white font-semibold text-base md:text-lg px-5 py-3 rounded-full shadow-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+   style="min-height:44px; display:flex; align-items:center;">
+  Conferma presenza
+</a>
+
+<!-- HERO -->
+<section id="home" class="grain min-h-screen flex flex-col items-center justify-center px-4 py-16 text-center relative overflow-hidden">
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-24 -left-24 w-72 h-72 md:w-96 md:h-96 bg-secondary/30 rounded-full blur-3xl"></div>
+    <div class="absolute top-1/3 -right-20 w-72 h-72 md:w-96 md:h-96 bg-gold/20 rounded-full blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/4 w-72 h-72 md:w-96 md:h-96 bg-sky-200/40 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cream/40 to-cream"></div>
+  </div>
+
+  <div id="petals" class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true"></div>
+
+  <div class="relative z-10 max-w-3xl mx-auto">
+    <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-gold font-semibold mb-4">Ci sposiamo</p>
+
+    <h1 id="hero-name" class="font-script text-6xl sm:text-7xl md:text-8xl text-primary leading-none mb-6">
+      Valeria &amp; Jacopo
+    </h1>
+
+    <img
+      src="Partecipazione%20(115%20x%20175%20mm).png"
+      alt="Invito di nozze di Valeria e Jacopo: illustrazione ad acquerello di una chiesa siciliana, con la frase 'Hanno detto che posso annunciarlo io. Mamma e papà si sposano! E vi vorremmo lì con noi.'"
+      class="w-72 sm:w-96 md:w-[30rem] mx-auto rounded-2xl shadow-2xl border-4 border-white mb-8"
+      loading="lazy"
+    >
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-6 text-2xl md:text-3xl mb-3">
+      <span class="font-bold text-ink">Lunedì 24 Agosto 2026</span>
+      <span class="hidden sm:inline text-gold">•</span>
+      <span class="font-semibold text-ink">Ore 17:00, Santa Venera</span>
+    </div>
+    <p class="text-xl md:text-2xl font-semibold text-primary mb-10">Festeggiamenti a seguire presso Villa Favorita</p>
+
+    <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-6 max-w-md mx-auto" aria-live="polite">
+      <div class="bg-white/70 rounded-xl py-3 shadow-sm">
+        <div id="cd-days" class="text-2xl md:text-3xl font-semibold text-primary">--</div>
+        <div class="text-[11px] md:text-xs uppercase tracking-wide text-ink/60">Giorni</div>
+      </div>
+      <div class="bg-white/70 rounded-xl py-3 shadow-sm">
+        <div id="cd-hours" class="text-2xl md:text-3xl font-semibold text-primary">--</div>
+        <div class="text-[11px] md:text-xs uppercase tracking-wide text-ink/60">Ore</div>
+      </div>
+      <div class="bg-white/70 rounded-xl py-3 shadow-sm">
+        <div id="cd-minutes" class="text-2xl md:text-3xl font-semibold text-primary">--</div>
+        <div class="text-[11px] md:text-xs uppercase tracking-wide text-ink/60">Minuti</div>
+      </div>
+      <div class="bg-white/70 rounded-xl py-3 shadow-sm">
+        <div id="cd-seconds" class="text-2xl md:text-3xl font-semibold text-primary">--</div>
+        <div class="text-[11px] md:text-xs uppercase tracking-wide text-ink/60">Secondi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="w-full leading-none" aria-hidden="true">
+  <svg class="block w-full h-16 md:h-24" viewBox="0 0 1440 100" preserveAspectRatio="none">
+    <path d="M0,40 C 240,90 480,90 720,40 C 960,-10 1200,-10 1440,40 L1440,100 L0,100 Z" fill="#ffffff"/>
+  </svg>
+</div>
+
+<!-- MENU -->
+<section id="menu" class="px-4 py-16 md:py-24 bg-white">
+  <div class="max-w-3xl mx-auto text-center">
+    <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-gold font-semibold mb-3">Villa Favorita</p>
+    <h2 class="font-script text-5xl md:text-6xl text-primary mb-4">Il Menù</h2>
+    <div class="flex items-center justify-center gap-3 mb-12" aria-hidden="true">
+      <span class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-gold"></span>
+      <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 C 12 8, 8 8, 6 12 C 8 16, 12 16, 12 22" />
+        <path d="M12 2 C 12 8, 16 8, 18 12 C 16 16, 12 16, 12 22" />
+        <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-gold"></span>
+    </div>
+
+    <div class="text-left space-y-6">
+
+      <div class="reveal bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16l-8 9-8-9z"/>
+            <path d="M12 13v7"/>
+            <path d="M8 20h8"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-3 text-center">Cocktail di benvenuto in Corte</h3>
+        <p class="text-lg text-ink/80 text-center">Mandorle · Canapè · Grana · Crostineria con mousse assortite · Tartine · Patatine · Verdure in pastella · Prosecco · Cocktails</p>
+      </div>
+
+      <div class="reveal bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="6" y1="2" x2="6" y2="9"/>
+            <line x1="9" y1="2" x2="9" y2="9"/>
+            <line x1="12" y1="2" x2="12" y2="9"/>
+            <path d="M6 9c0 2 2.5 3 3 3s3-1 3-3"/>
+            <line x1="9" y1="12" x2="9" y2="22"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-3 text-center">Angoli gastronomici in Giardino</h3>
+
+        <p class="font-serif font-semibold text-lg text-primary mt-4 mb-1">Fritti</p>
+        <p class="text-lg text-ink/80">Cappuccetto pastellato · Polpette con seppie, gamberi e sarde</p>
+
+        <p class="font-serif font-semibold text-lg text-primary mt-4 mb-1">Crudité</p>
+        <p class="text-lg text-ink/80">Ghiacciate di gambero rosso e scampi · Tartare di tonno agli agrumi e menta · Tartare di ricciola al pepe · Tartare di gamberi con bufalina · Carpaccio di pesce spada al balsamico e mandorle · Carpaccio di salmone al pepe rosa · Carpaccio di spigola ai frutti di bosco</p>
+
+        <p class="font-serif font-semibold text-lg text-primary mt-4 mb-1">Angolo delle Tradizioni</p>
+        <p class="text-lg text-ink/80">Caponata alle mandorle · Millefoglie di parmigiana in fonduta di Ragusano e pistacchi · Tortino di alici zafferano e finocchietto · Peperonata con mandorle e menta · Sarde allinguate e a beccafico · Arancini al Marsala e rosmarino · Arabetti con panelle · Polpo in bellavista</p>
+
+        <p class="text-lg text-ink/80 mt-4">Selezione di formaggi tipici con miele e marmellate · Prosciutto crudo in bellavista · Coppe di gamberi agli agrumi e verdurine</p>
+      </div>
+
+      <div class="reveal bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <circle cx="12" cy="12" r="4"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-3 text-center">Primi e Secondi</h3>
+        <p class="text-lg text-ink/80 text-center">Linguine al Passito, ricciola, code di gambero rosso e mandorle · Ruota di pesce spada in caponata di agrumi · Spiedino di gamberi · Patate duchessa · Cubotto di melanzana al rosmarino · Coppa di frutta fresca</p>
+      </div>
+
+      <div class="reveal bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 20h16v-6a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4z"/>
+            <path d="M4 16h16"/>
+            <path d="M12 10V6"/>
+            <path d="M12 6c-1 0-1-2 0-2s1 2 0 2z"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-3 text-center">In Corte — Dolci</h3>
+        <p class="text-lg text-ink/80 text-center">Torta Mariage · Millefoglie ai frutti di bosco · Parfait di mandorle · Bavarese al limone · Savarin con panna e pesche · Profitterol al cioccolato · Torte gelato al caffè e nocciola · Angolo Cassata Siciliana e cannoli (live) · Torta di ricotta con gelatina e canditi all'arancia · Semifreddo</p>
+      </div>
+
+      <div class="reveal text-center bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 3h12c0 5-2 8-6 8s-6-3-6-8z"/>
+            <path d="M12 11v8"/>
+            <path d="M8 19h8"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-3">Da bere</h3>
+        <p class="text-lg text-ink/80">Vino · Spumante</p>
+      </div>
+
+      <div class="reveal text-center bg-cream rounded-2xl p-6 md:p-8 border border-secondary/20 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-12 h-12 mx-auto mb-4 rounded-full bg-secondary/15 flex items-center justify-center text-primary">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-2">Menù bambini</h3>
+        <p class="text-lg text-ink/80">Anelletti · Cotoletta e patatine</p>
+      </div>
+
+      <p class="reveal text-center text-xl md:text-2xl font-semibold text-primary bg-secondary/10 border border-secondary/30 rounded-xl px-4 py-4">
+        Hai allergie o intolleranze?<br>Potrai indicarcelo nel form di conferma presenza qui sotto.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+<!-- RSVP -->
+<section id="rsvp" class="px-4 py-16 md:py-24">
+  <div class="max-w-2xl mx-auto text-center">
+    <p class="uppercase tracking-[0.3em] text-xs md:text-sm text-gold font-semibold mb-3">Ci sarai?</p>
+    <h2 class="font-script text-5xl md:text-6xl text-primary mb-4">Conferma la tua presenza</h2>
+    <div class="flex items-center justify-center gap-3 mb-4" aria-hidden="true">
+      <span class="h-px w-16 md:w-24 bg-gradient-to-r from-transparent to-gold"></span>
+      <svg class="w-7 h-7 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 2 C 12 8, 8 8, 6 12 C 8 16, 12 16, 12 22" />
+        <path d="M12 2 C 12 8, 16 8, 18 12 C 16 16, 12 16, 12 22" />
+        <circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/>
+      </svg>
+      <span class="h-px w-16 md:w-24 bg-gradient-to-l from-transparent to-gold"></span>
+    </div>
+    <p class="text-xl md:text-2xl font-semibold text-primary bg-secondary/10 border border-secondary/30 rounded-xl px-4 py-3 mb-10 inline-block">Vi chiediamo gentilmente di rispondere entro il <strong class="text-gold">10 agosto 2026</strong>.</p>
+  </div>
+
+  <!--
+    COLLEGAMENTO A GOOGLE FORM (da fare a cura degli sposi):
+    1. Creare un Google Form con campi corrispondenti a quelli qui sotto.
+    2. Aprire il form, cliccare sui tre puntini > "Ottieni link precompilato" per ricavare i nomi
+       "entry.XXXXXXX" di ciascun campo dal link generato.
+    3. Sostituire GOOGLE_FORM_ACTION_URL con l'URL ".../formResponse" del proprio form
+       (uguale all'URL del form ma con /formResponse al posto di /viewform).
+    4. Sostituire ogni "entry.REPLACE_*" qui sotto con l'entry.ID reale corrispondente.
+    5. Nel Google Form, attivare "Ricevi email per ogni nuova risposta" per le notifiche.
+  -->
+  <form id="rsvp-form"
+        action="GOOGLE_FORM_ACTION_URL"
+        method="POST"
+        target="hidden_iframe"
+        class="reveal max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 md:p-10 border border-secondary/20 text-left space-y-6">
+
+    <div>
+      <label for="nome" class="block font-serif font-semibold text-lg text-ink mb-1">Nome e cognome *</label>
+      <input type="text" id="nome" name="entry.REPLACE_NOME" required
+             class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold">
+    </div>
+
+    <fieldset>
+      <legend class="block font-serif font-semibold text-lg text-ink mb-2">Parteciperai? *</legend>
+      <div class="flex gap-6">
+        <label class="flex items-center gap-2 text-lg cursor-pointer">
+          <input type="radio" name="entry.REPLACE_PRESENZA" value="Sì" required class="w-5 h-5 accent-primary" id="presenza-si">
+          Sì, con gioia
+        </label>
+        <label class="flex items-center gap-2 text-lg cursor-pointer">
+          <input type="radio" name="entry.REPLACE_PRESENZA" value="No" required class="w-5 h-5 accent-primary" id="presenza-no">
+          Non potrò esserci
+        </label>
+      </div>
+    </fieldset>
+
+    <div id="dettagli-presenza" class="space-y-6 hidden">
+
+      <div>
+        <div class="flex items-center justify-between mb-2">
+          <span class="block font-serif font-semibold text-lg text-ink">Accompagnatori / figli</span>
+          <button type="button" id="add-guest"
+                  class="text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 rounded-lg border border-primary/40 min-h-[44px]">
+            + Aggiungi persona
+          </button>
+        </div>
+        <p class="text-sm text-ink/60 mb-3">Aggiungi un campo per ogni persona che verrà con te, figli inclusi.</p>
+        <div id="guest-list" class="space-y-3"></div>
+      </div>
+
+      <div>
+        <label for="allergie" class="block font-serif font-semibold text-lg text-ink mb-1">Allergie o intolleranze</label>
+        <textarea id="allergie" name="entry.REPLACE_ALLERGIE" rows="2"
+                  class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold"
+                  placeholder="Facoltativo"></textarea>
+      </div>
+    </div>
+
+    <div>
+      <label for="messaggio" class="block font-serif font-semibold text-lg text-ink mb-1">Un messaggio per noi</label>
+      <textarea id="messaggio" name="entry.REPLACE_MESSAGGIO" rows="3"
+                class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold"
+                placeholder="Facoltativo"></textarea>
+    </div>
+
+    <!-- Contenitore nascosto per i nomi accompagnatori, generato dinamicamente da JS -->
+    <div id="guest-hidden-inputs"></div>
+
+    <button type="submit" id="rsvp-submit"
+            class="w-full bg-primary hover:bg-ink text-white font-semibold text-lg px-6 py-4 rounded-xl shadow-md transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+            style="min-height:44px;">
+      Invia conferma
+    </button>
+
+    <p id="rsvp-feedback" class="text-center text-lg font-semibold hidden" role="status"></p>
+  </form>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="invio form"></iframe>
+</section>
+
+<!-- FOOTER / LISTA NOZZE -->
+<footer class="px-4 py-16 text-center bg-white border-t border-secondary/20">
+  <p class="font-script text-4xl text-primary mb-6">Valeria &amp; Jacopo</p>
+  <p class="text-xl md:text-2xl font-semibold text-ink mb-4">Per chi volesse contribuire al nostro viaggio di nozze</p>
+  <div class="reveal inline-block bg-cream border border-secondary/30 rounded-xl px-6 py-5 max-w-md mx-auto">
+    <div class="flex items-center justify-center gap-3 mb-2 flex-wrap">
+      <p id="iban-value" class="font-mono tracking-wide text-lg md:text-xl font-bold text-primary break-all">IT56H0623025900000015258689</p>
+      <button type="button" id="copy-iban"
+              class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              style="min-width:44px; min-height:44px;" aria-label="Copia IBAN" title="Copia IBAN">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>
+    </div>
+    <p class="text-base md:text-lg text-ink/80">Crédit Agricole</p>
+    <div class="flex items-center justify-center gap-2 flex-wrap">
+      <p id="intestatario-value" class="text-base md:text-lg text-ink/80">Int. Pipitone Valeria Maria Sant Jacopo</p>
+      <button type="button" id="copy-intestatario"
+              class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              style="min-width:44px; min-height:44px;" aria-label="Copia intestatario" title="Copia intestatario">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Reveal lettera per lettera del nome in hero
+  (function () {
+    const el = document.getElementById('hero-name');
+    const text = el.textContent.trim();
+    el.innerHTML = '';
+    [...text].forEach((char, i) => {
+      const span = document.createElement('span');
+      span.className = 'hero-letter';
+      span.style.animationDelay = (i * 0.05) + 's';
+      span.textContent = char === ' ' ? ' ' : char;
+      el.appendChild(span);
+    });
+  })();
+
+  // Petali che cadono nell'hero
+  (function () {
+    const container = document.getElementById('petals');
+    const colors = ['#F472B6', '#DB2777', '#CA8A04'];
+    const count = 6;
+    for (let i = 0; i < count; i++) {
+      const petal = document.createElement('div');
+      petal.className = 'petal';
+      const size = 8 + Math.random() * 6;
+      petal.style.width = size + 'px';
+      petal.style.height = (size * 1.4) + 'px';
+      petal.style.left = (Math.random() * 100) + '%';
+      petal.style.background = colors[i % colors.length];
+      petal.style.setProperty('--drift', (Math.random() * 80 - 40) + 'px');
+      petal.style.animationDuration = (14 + Math.random() * 10) + 's';
+      petal.style.animationDelay = (Math.random() * 12) + 's';
+      container.appendChild(petal);
+    }
+  })();
+
+  // Countdown al 24 agosto 2026, ore 17:00
+  (function () {
+    const target = new Date('2026-08-24T17:00:00+02:00').getTime();
+    const daysEl = document.getElementById('cd-days');
+    const hoursEl = document.getElementById('cd-hours');
+    const minutesEl = document.getElementById('cd-minutes');
+    const secondsEl = document.getElementById('cd-seconds');
+
+    const prev = { d: null, h: null, m: null, s: null };
+
+    function setDigit(el, key, value) {
+      if (prev[key] !== value) {
+        el.textContent = value;
+        el.classList.remove('digit-pop');
+        void el.offsetWidth;
+        el.classList.add('digit-pop');
+        prev[key] = value;
+      }
+    }
+
+    function update() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        daysEl.textContent = hoursEl.textContent = minutesEl.textContent = secondsEl.textContent = '0';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      setDigit(daysEl, 'd', d);
+      setDigit(hoursEl, 'h', h);
+      setDigit(minutesEl, 'm', m);
+      setDigit(secondsEl, 's', s);
+    }
+    update();
+    setInterval(update, 1000);
+  })();
+
+  // Fade-in on scroll
+  (function () {
+    const revealEls = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) || revealEls.length === 0) {
+      revealEls.forEach((el) => el.classList.add('is-visible'));
+      return;
+    }
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach((el) => observer.observe(el));
+  })();
+
+  // Mostra/nasconde dettagli presenza + gestione accompagnatori dinamici
+  (function () {
+    const presenzaSi = document.getElementById('presenza-si');
+    const presenzaNo = document.getElementById('presenza-no');
+    const dettagli = document.getElementById('dettagli-presenza');
+    const guestList = document.getElementById('guest-list');
+    const addGuestBtn = document.getElementById('add-guest');
+    const hiddenInputs = document.getElementById('guest-hidden-inputs');
+    let guestCount = 0;
+
+    function toggleDettagli() {
+      dettagli.classList.toggle('hidden', !presenzaSi.checked);
+    }
+    presenzaSi.addEventListener('change', toggleDettagli);
+    presenzaNo.addEventListener('change', toggleDettagli);
+
+    function addGuestRow() {
+      guestCount++;
+      const id = guestCount;
+      const row = document.createElement('div');
+      row.className = 'flex flex-col sm:flex-row gap-2 sm:items-center bg-cream rounded-lg p-3';
+      row.dataset.guestId = id;
+      row.innerHTML = `
+        <input type="text" placeholder="Nome e cognome" data-guest-name="${id}"
+               class="flex-1 rounded-lg border border-secondary/40 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-gold">
+        <label class="flex items-center gap-2 text-sm cursor-pointer whitespace-nowrap">
+          <input type="checkbox" data-guest-baby="${id}" class="w-5 h-5 accent-primary"> Bambino
+        </label>
+        <button type="button" data-remove="${id}"
+                class="text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 min-h-[44px]">
+          Rimuovi
+        </button>
+      `;
+      guestList.appendChild(row);
+
+      row.querySelector(`[data-remove="${id}"]`).addEventListener('click', () => {
+        row.remove();
+        syncHiddenInputs();
+      });
+      row.querySelector(`[data-guest-name="${id}"]`).addEventListener('input', syncHiddenInputs);
+      row.querySelector(`[data-guest-baby="${id}"]`).addEventListener('change', syncHiddenInputs);
+      syncHiddenInputs();
+    }
+
+    function syncHiddenInputs() {
+      hiddenInputs.innerHTML = '';
+      const rows = guestList.querySelectorAll('[data-guest-id]');
+      rows.forEach((row) => {
+        const id = row.dataset.guestId;
+        const name = row.querySelector(`[data-guest-name="${id}"]`).value.trim();
+        const isBaby = row.querySelector(`[data-guest-baby="${id}"]`).checked;
+        if (name) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'entry.REPLACE_ACCOMPAGNATORI';
+          input.value = name + (isBaby ? ' (bambino)' : '');
+          hiddenInputs.appendChild(input);
+        }
+      });
+    }
+
+    addGuestBtn.addEventListener('click', addGuestRow);
+  })();
+
+  // Copia rapida (IBAN / intestatario)
+  (function () {
+    const iconCheck = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
+    function setupCopyButton(btnId, valueId, defaultTitle, stripPrefix) {
+      const btn = document.getElementById(btnId);
+      let text = document.getElementById(valueId).textContent.trim();
+      if (stripPrefix) text = text.replace(stripPrefix, '').trim();
+      const iconCopy = btn.innerHTML;
+
+      btn.addEventListener('click', function () {
+        const done = () => {
+          btn.innerHTML = iconCheck;
+          btn.setAttribute('title', 'Copiato!');
+          setTimeout(() => {
+            btn.innerHTML = iconCopy;
+            btn.setAttribute('title', defaultTitle);
+          }, 2000);
+        };
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(done).catch(done);
+        } else {
+          const tmp = document.createElement('textarea');
+          tmp.value = text;
+          tmp.style.position = 'fixed';
+          tmp.style.opacity = '0';
+          document.body.appendChild(tmp);
+          tmp.select();
+          try { document.execCommand('copy'); } catch (err) {}
+          document.body.removeChild(tmp);
+          done();
+        }
+      });
+    }
+
+    setupCopyButton('copy-iban', 'iban-value', 'Copia IBAN');
+    setupCopyButton('copy-intestatario', 'intestatario-value', 'Copia intestatario', 'Int.');
+  })();
+
+  // Feedback invio form (il submit reale avviene verso Google Form tramite iframe nascosto)
+  (function () {
+    const form = document.getElementById('rsvp-form');
+    const feedback = document.getElementById('rsvp-feedback');
+
+    form.addEventListener('submit', function (e) {
+      if (form.action.includes('GOOGLE_FORM_ACTION_URL')) {
+        e.preventDefault();
+        feedback.textContent = 'Modulo non ancora collegato: configurare l\'URL del Google Form per attivare l\'invio.';
+        feedback.className = 'text-center text-lg font-semibold text-primary';
+        feedback.classList.remove('hidden');
+        return;
+      }
+      feedback.textContent = 'Grazie! La tua risposta è stata inviata.';
+      feedback.className = 'text-center text-lg font-semibold text-primary';
+      feedback.classList.remove('hidden');
+      setTimeout(() => form.reset(), 200);
+    });
+  })();
+</script>
+
+</body>
+</html>
