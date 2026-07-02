@@ -276,25 +276,16 @@
     <p class="text-xl md:text-2xl font-semibold text-primary bg-secondary/10 border border-secondary/30 rounded-xl px-4 py-3 mb-10 inline-block">Vi chiediamo gentilmente di rispondere entro il <strong class="text-gold">10 agosto 2026</strong>.</p>
   </div>
 
-  <!--
-    COLLEGAMENTO A GOOGLE FORM (da fare a cura degli sposi):
-    1. Creare un Google Form con campi corrispondenti a quelli qui sotto.
-    2. Aprire il form, cliccare sui tre puntini > "Ottieni link precompilato" per ricavare i nomi
-       "entry.XXXXXXX" di ciascun campo dal link generato.
-    3. Sostituire GOOGLE_FORM_ACTION_URL con l'URL ".../formResponse" del proprio form
-       (uguale all'URL del form ma con /formResponse al posto di /viewform).
-    4. Sostituire ogni "entry.REPLACE_*" qui sotto con l'entry.ID reale corrispondente.
-    5. Nel Google Form, attivare "Ricevi email per ogni nuova risposta" per le notifiche.
-  -->
+  <!-- Collegato al Google Form: https://docs.google.com/forms/d/e/1FAIpQLSfySuKUgUmXV-gOLeFuTn-RWgck9GKdyoA1IsmFa72aDXjfzA/viewform -->
   <form id="rsvp-form"
-        action="GOOGLE_FORM_ACTION_URL"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfySuKUgUmXV-gOLeFuTn-RWgck9GKdyoA1IsmFa72aDXjfzA/formResponse"
         method="POST"
         target="hidden_iframe"
         class="reveal max-w-2xl mx-auto bg-white rounded-2xl shadow-md p-6 md:p-10 border border-secondary/20 text-left space-y-6">
 
     <div>
       <label for="nome" class="block font-serif font-semibold text-lg text-ink mb-1">Nome e cognome *</label>
-      <input type="text" id="nome" name="entry.REPLACE_NOME" required
+      <input type="text" id="nome" name="entry.427921949" required
              class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold">
     </div>
 
@@ -302,11 +293,11 @@
       <legend class="block font-serif font-semibold text-lg text-ink mb-2">Parteciperai? *</legend>
       <div class="flex gap-6">
         <label class="flex items-center gap-2 text-lg cursor-pointer">
-          <input type="radio" name="entry.REPLACE_PRESENZA" value="Sì" required class="w-5 h-5 accent-primary" id="presenza-si">
+          <input type="radio" name="entry.996476507" value="Sì" required class="w-5 h-5 accent-primary" id="presenza-si">
           Sì, con gioia
         </label>
         <label class="flex items-center gap-2 text-lg cursor-pointer">
-          <input type="radio" name="entry.REPLACE_PRESENZA" value="No" required class="w-5 h-5 accent-primary" id="presenza-no">
+          <input type="radio" name="entry.996476507" value="No" required class="w-5 h-5 accent-primary" id="presenza-no">
           Non potrò esserci
         </label>
       </div>
@@ -328,7 +319,7 @@
 
       <div>
         <label for="allergie" class="block font-serif font-semibold text-lg text-ink mb-1">Allergie o intolleranze</label>
-        <textarea id="allergie" name="entry.REPLACE_ALLERGIE" rows="2"
+        <textarea id="allergie" name="entry.1943536701" rows="2"
                   class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold"
                   placeholder="Facoltativo"></textarea>
       </div>
@@ -336,7 +327,7 @@
 
     <div>
       <label for="messaggio" class="block font-serif font-semibold text-lg text-ink mb-1">Un messaggio per noi</label>
-      <textarea id="messaggio" name="entry.REPLACE_MESSAGGIO" rows="3"
+      <textarea id="messaggio" name="entry.1733453292" rows="3"
                 class="w-full rounded-lg border border-secondary/40 px-4 py-3 text-lg focus:outline-none focus:ring-2 focus:ring-gold"
                 placeholder="Facoltativo"></textarea>
     </div>
@@ -538,18 +529,22 @@
     function syncHiddenInputs() {
       hiddenInputs.innerHTML = '';
       const rows = guestList.querySelectorAll('[data-guest-id]');
+      const names = [];
       rows.forEach((row) => {
         const id = row.dataset.guestId;
         const name = row.querySelector(`[data-guest-name="${id}"]`).value.trim();
         const isBaby = row.querySelector(`[data-guest-baby="${id}"]`).checked;
         if (name) {
-          const input = document.createElement('input');
-          input.type = 'hidden';
-          input.name = 'entry.REPLACE_ACCOMPAGNATORI';
-          input.value = name + (isBaby ? ' (bambino)' : '');
-          hiddenInputs.appendChild(input);
+          names.push(name + (isBaby ? ' (bambino)' : ''));
         }
       });
+      if (names.length) {
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'entry.1254969317';
+        input.value = names.join('; ');
+        hiddenInputs.appendChild(input);
+      }
     }
 
     addGuestBtn.addEventListener('click', addGuestRow);
@@ -600,13 +595,6 @@
     const feedback = document.getElementById('rsvp-feedback');
 
     form.addEventListener('submit', function (e) {
-      if (form.action.includes('GOOGLE_FORM_ACTION_URL')) {
-        e.preventDefault();
-        feedback.textContent = 'Modulo non ancora collegato: configurare l\'URL del Google Form per attivare l\'invio.';
-        feedback.className = 'text-center text-lg font-semibold text-primary';
-        feedback.classList.remove('hidden');
-        return;
-      }
       feedback.textContent = 'Grazie! La tua risposta è stata inviata.';
       feedback.className = 'text-center text-lg font-semibold text-primary';
       feedback.classList.remove('hidden');
