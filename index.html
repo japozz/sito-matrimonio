@@ -125,7 +125,7 @@
 
     <p class="font-bold text-ink text-2xl md:text-3xl mb-1">Lunedì 24 Agosto 2026</p>
     <p class="font-semibold text-ink text-2xl md:text-3xl mb-2">Ore 17:00, Santa Venera</p>
-    <p class="text-lg md:text-xl font-bold text-white bg-primary inline-block rounded-full px-5 py-2 shadow-md mb-6">Ora d'inizio cerimonia; Don Vito non fa sconti!</p>
+    <p class="whitespace-nowrap font-bold text-white bg-primary inline-block rounded-full px-5 py-2 shadow-md mb-6" style="font-size: clamp(0.7rem, 3.4vw, 1.125rem);">Ora d'inizio cerimonia; Don Vito non fa sconti!</p>
     <p class="text-xl md:text-2xl font-semibold text-primary mb-10">Ricevimento a Villa Favorita</p>
 
     <div id="countdown" class="grid grid-cols-4 gap-3 sm:gap-6 max-w-md mx-auto" aria-live="polite">
@@ -250,9 +250,10 @@
             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 21 12 17.77 5.82 21 7 14.14 2 9.27l6.91-1.01L12 2z"/>
           </svg>
         </div>
-        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-2">Menù bambini (dai 5 anni)</h3>
+        <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-2">Menù bambini (dai 4 anni)</h3>
         <p class="text-lg text-ink/80">Anelletti · Cotoletta e patatine</p>
         <p class="text-base text-ink/60 mt-2">Per i più piccoli niente paura: basta chiedere un piatto di pasta, in bianco o al pomodoro!</p>
+        <p class="text-base font-semibold text-white bg-primary rounded-lg px-3 py-2 mt-4">Per la serata, non è previsto servizio di baby-sitting</p>
       </div>
 
       <p class="reveal text-center text-xl md:text-2xl font-semibold text-white bg-primary rounded-xl px-4 py-4 shadow-md">
@@ -304,7 +305,12 @@
           <input type="radio" name="entry.996476507" value="No" required class="w-5 h-5 accent-primary" id="presenza-no">
           Non potrò esserci
         </label>
+        <label class="flex items-center gap-2 text-lg cursor-pointer">
+          <input type="radio" name="entry.996476507" value="Non so ancora" required class="w-5 h-5 accent-primary" id="presenza-forse">
+          Non so ancora
+        </label>
       </div>
+      <p id="promemoria-forse" class="hidden mt-3 text-base font-semibold text-white bg-primary rounded-lg px-3 py-2">Ricordati di confermare la tua risposta definitiva entro il <u>10 agosto 2026</u>!</p>
     </fieldset>
 
     <div id="dettagli-presenza" class="space-y-6 hidden">
@@ -365,7 +371,7 @@
 <!-- FOOTER / LISTA NOZZE -->
 <footer class="px-4 py-16 text-center bg-white border-t border-secondary/20">
   <p class="font-script text-4xl text-primary mb-6">Valeria &amp; Jacopo</p>
-  <p class="text-xl md:text-2xl font-semibold text-ink mb-4">Per chi volesse contribuire al nostro viaggio di nozze</p>
+  <p class="text-xl md:text-2xl font-semibold text-ink mb-4">Per chi volesse contribuire al nostro viaggio di nozze ❤️</p>
   <div class="reveal inline-block bg-cream border border-secondary/30 rounded-xl px-6 py-5 max-w-md mx-auto">
     <div class="flex items-center justify-center gap-3 mb-2 flex-wrap">
       <p id="iban-value" class="font-mono tracking-wide whitespace-nowrap font-bold text-primary" style="font-size: clamp(0.95rem, 4.2vw, 1.25rem);">IT56H0623025900000015258689</p>
@@ -384,6 +390,17 @@
       <button type="button" id="copy-intestatario"
               class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
               style="min-width:44px; min-height:44px;" aria-label="Copia intestatario" title="Copia intestatario">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
+          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
+          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        </svg>
+      </button>
+    </div>
+    <div class="flex items-center justify-center gap-2 flex-wrap mt-2">
+      <p class="text-base md:text-lg text-ink/80">Causale: <span id="causale-value" class="font-semibold">Regalo nozze Valeria e Jacopo</span></p>
+      <button type="button" id="copy-causale"
+              class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              style="min-width:44px; min-height:44px;" aria-label="Copia causale" title="Copia causale">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
           <rect x="9" y="9" width="13" height="13" rx="2"></rect>
           <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -501,6 +518,8 @@
   (function () {
     const presenzaSi = document.getElementById('presenza-si');
     const presenzaNo = document.getElementById('presenza-no');
+    const presenzaForse = document.getElementById('presenza-forse');
+    const promemoriaForse = document.getElementById('promemoria-forse');
     const dettagli = document.getElementById('dettagli-presenza');
     const guestList = document.getElementById('guest-list');
     const addGuestBtn = document.getElementById('add-guest');
@@ -509,35 +528,62 @@
 
     function toggleDettagli() {
       dettagli.classList.toggle('hidden', !presenzaSi.checked);
+      promemoriaForse.classList.toggle('hidden', !presenzaForse.checked);
     }
     presenzaSi.addEventListener('change', toggleDettagli);
     presenzaNo.addEventListener('change', toggleDettagli);
+    presenzaForse.addEventListener('change', toggleDettagli);
 
     function addGuestRow() {
       guestCount++;
       const id = guestCount;
       const row = document.createElement('div');
-      row.className = 'flex flex-col sm:flex-row gap-2 sm:items-center bg-cream rounded-lg p-3';
+      row.className = 'bg-cream rounded-lg p-3 space-y-2';
       row.dataset.guestId = id;
       row.innerHTML = `
-        <input type="text" placeholder="Nome e cognome" data-guest-name="${id}"
-               class="flex-1 rounded-lg border border-secondary/40 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-gold">
-        <label class="flex items-center gap-2 text-sm cursor-pointer whitespace-nowrap">
-          <input type="checkbox" data-guest-baby="${id}" class="w-5 h-5 accent-primary"> Bambino
-        </label>
-        <button type="button" data-remove="${id}"
-                class="text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 min-h-[44px]">
-          Rimuovi
-        </button>
+        <div class="flex flex-col sm:flex-row gap-2 sm:items-center">
+          <input type="text" placeholder="Nome e cognome" data-guest-name="${id}"
+                 class="flex-1 rounded-lg border border-secondary/40 px-3 py-2 text-base focus:outline-none focus:ring-2 focus:ring-gold">
+          <label class="flex items-center gap-2 text-sm cursor-pointer whitespace-nowrap">
+            <input type="checkbox" data-guest-baby="${id}" class="w-5 h-5 accent-primary"> Bambino
+          </label>
+          <button type="button" data-remove="${id}"
+                  class="text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 min-h-[44px]">
+            Rimuovi
+          </button>
+        </div>
+        <div data-guest-age-wrap="${id}" class="hidden flex flex-wrap gap-4 text-sm pl-1">
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="radio" name="guest-age-${id}" value="under4" data-guest-age="${id}" class="accent-primary"> Sotto i 4 anni
+          </label>
+          <label class="flex items-center gap-1.5 cursor-pointer">
+            <input type="radio" name="guest-age-${id}" value="4-10" data-guest-age="${id}" class="accent-primary"> 4-10 anni
+          </label>
+        </div>
       `;
       guestList.appendChild(row);
+
+      const babyCheckbox = row.querySelector(`[data-guest-baby="${id}"]`);
+      const ageWrap = row.querySelector(`[data-guest-age-wrap="${id}"]`);
+      const ageRadios = row.querySelectorAll(`[data-guest-age="${id}"]`);
 
       row.querySelector(`[data-remove="${id}"]`).addEventListener('click', () => {
         row.remove();
         syncHiddenInputs();
       });
       row.querySelector(`[data-guest-name="${id}"]`).addEventListener('input', syncHiddenInputs);
-      row.querySelector(`[data-guest-baby="${id}"]`).addEventListener('change', syncHiddenInputs);
+      babyCheckbox.addEventListener('change', () => {
+        const isChecked = babyCheckbox.checked;
+        ageWrap.classList.toggle('hidden', !isChecked);
+        ageRadios.forEach((radio) => {
+          radio.required = isChecked;
+          if (!isChecked) radio.checked = false;
+        });
+        syncHiddenInputs();
+      });
+      row.querySelectorAll(`[data-guest-age="${id}"]`).forEach((radio) => {
+        radio.addEventListener('change', syncHiddenInputs);
+      });
       syncHiddenInputs();
     }
 
@@ -549,8 +595,17 @@
         const id = row.dataset.guestId;
         const name = row.querySelector(`[data-guest-name="${id}"]`).value.trim();
         const isBaby = row.querySelector(`[data-guest-baby="${id}"]`).checked;
+        let suffix = '';
+        if (isBaby) {
+          const ageChecked = row.querySelector(`[data-guest-age="${id}"]:checked`);
+          if (ageChecked) {
+            suffix = ageChecked.value === 'under4' ? ' (bambino, sotto i 4 anni)' : ' (bambino, 4-10 anni)';
+          } else {
+            suffix = ' (bambino)';
+          }
+        }
         if (name) {
-          names.push(name + (isBaby ? ' (bambino)' : ''));
+          names.push(name + suffix);
         }
       });
       if (names.length) {
@@ -602,6 +657,7 @@
 
     setupCopyButton('copy-iban', 'iban-value', 'Copia IBAN');
     setupCopyButton('copy-intestatario', 'intestatario-value', 'Copia intestatario', 'Int.');
+    setupCopyButton('copy-causale', 'causale-value', 'Copia causale');
   })();
 
   // Feedback invio form (il submit reale avviene verso Google Form tramite iframe nascosto)
