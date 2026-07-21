@@ -253,7 +253,6 @@
         <h3 class="font-serif font-semibold text-xl md:text-2xl text-ink mb-2">Menù bambini (dai 4 anni)</h3>
         <p class="text-lg text-ink/80">Anelletti · Cotoletta e patatine</p>
         <p class="text-base text-ink/60 mt-2">Per i più piccoli niente paura: basta chiedere un piatto di pasta, in bianco o al pomodoro!</p>
-        <p class="whitespace-nowrap font-semibold text-primary bg-secondary/25 rounded-lg px-2 py-2 mt-4" style="font-size: clamp(0.6rem, 3.2vw, 1rem);">Per la serata, non è previsto servizio di baby-sitting</p>
       </div>
 
       <p class="reveal text-center text-xl md:text-2xl font-semibold text-white bg-primary rounded-xl px-4 py-4 shadow-md">
@@ -372,62 +371,6 @@
 
   <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" title="invio form"></iframe>
 </section>
-
-<!-- MODAL REGALO/BONIFICO -->
-<div id="regalo-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 backdrop-blur-sm">
-  <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-8 relative animate-in fade-in zoom-in duration-300">
-    <button type="button" id="close-modal" class="absolute top-4 right-4 text-ink/60 hover:text-ink transition-colors focus:outline-none" aria-label="Chiudi">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6">
-        <line x1="18" y1="6" x2="6" y2="18"></line>
-        <line x1="6" y1="6" x2="18" y2="18"></line>
-      </svg>
-    </button>
-
-    <p class="text-base md:text-lg text-ink text-center mb-4">Grazie per la tua risposta! Se volessi contribuire<br>al nostro viaggio di nozze.. ❤️</p>
-
-    <div class="bg-cream border border-secondary/30 rounded-xl px-6 py-5">
-      <div class="flex items-center justify-center gap-3 mb-2 flex-wrap">
-        <p id="modal-iban-value" class="font-mono tracking-wide whitespace-nowrap font-bold text-primary text-sm md:text-base">IT56H0623025900000015258689</p>
-        <button type="button" id="modal-copy-iban"
-                class="flex items-center justify-center gap-1 text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-                style="min-width:44px; min-height:44px;" aria-label="Copia IBAN" title="Copia IBAN">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-          <span class="text-sm font-semibold">Copia</span>
-        </button>
-      </div>
-      <p class="text-sm md:text-base text-ink/80 text-center">Crédit Agricole</p>
-      <div class="flex items-center justify-center gap-2 flex-wrap my-2">
-        <p id="modal-intestatario-value" class="text-sm md:text-base text-ink/80">Int. Pipitone Valeria Maria Sant Jacopo</p>
-        <button type="button" id="modal-copy-intestatario"
-                class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-                style="min-width:44px; min-height:44px;" aria-label="Copia intestatario" title="Copia intestatario">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-        </button>
-      </div>
-      <div class="flex items-center justify-center gap-2 flex-wrap">
-        <p class="text-sm md:text-base text-ink/80">Causale: <span id="modal-causale-value" class="font-semibold">Regalo nozze Valeria e Jacopo</span></p>
-        <button type="button" id="modal-copy-causale"
-                class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-                style="min-width:44px; min-height:44px;" aria-label="Copia causale" title="Copia causale">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-            <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
-        </button>
-      </div>
-    </div>
-
-    <button type="button" id="modal-close-btn" class="w-full mt-6 bg-primary hover:bg-ink text-white font-semibold px-4 py-3 rounded-xl transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold">
-      Ho capito, grazie!
-    </button>
-  </div>
-</div>
 
 <!-- FOOTER / LISTA NOZZE -->
 <footer id="regalo-section" class="px-4 py-16 text-center bg-white border-t border-secondary/20">
@@ -736,13 +679,6 @@
     const form = document.getElementById('rsvp-form');
     const feedback = document.getElementById('rsvp-feedback');
     const feedbackText = document.getElementById('rsvp-feedback-text');
-    const modal = document.getElementById('regalo-modal');
-    const closeBtn = document.getElementById('close-modal');
-    const closeBtnPrimary = document.getElementById('modal-close-btn');
-
-    function closeModal() {
-      modal.classList.add('hidden');
-    }
 
     form.addEventListener('submit', function (e) {
       feedbackText.textContent = 'Grazie! La tua risposta è stata inviata.';
@@ -751,14 +687,8 @@
       feedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
       setTimeout(() => {
         form.reset();
-        modal.classList.remove('hidden');
-      }, 1200);
-    });
-
-    closeBtn.addEventListener('click', closeModal);
-    closeBtnPrimary.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
+        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+      }, 300);
     });
   })();
 
