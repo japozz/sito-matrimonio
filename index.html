@@ -89,8 +89,8 @@
 <body class="bg-cream text-ink">
 
 <!-- CTA fluttuante -->
-<a href="#rsvp"
-   class="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 bg-primary hover:bg-ink text-white font-semibold text-base md:text-lg px-5 py-3 rounded-full shadow-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+<a id="cta-conferma" href="#rsvp"
+   class="fixed z-50 bottom-4 right-4 md:bottom-6 md:right-6 bg-primary hover:bg-ink text-white font-semibold text-base md:text-lg px-5 py-3 rounded-full shadow-lg transition-all duration-300 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
    style="min-height:44px; display:flex; align-items:center;">
   Conferma presenza
 </a>
@@ -297,15 +297,15 @@
     <fieldset>
       <legend class="block font-serif font-semibold text-lg text-ink mb-3">Parteciperai? *</legend>
       <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
-        <label class="flex items-start gap-3 text-base sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
+        <label class="flex items-start gap-3 text-lg sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
           <input type="radio" name="entry.996476507" value="Sì" required class="w-6 h-6 flex-shrink-0 mt-0.5 accent-primary" id="presenza-si">
           <span class="font-medium">Sì, con gioia</span>
         </label>
-        <label class="flex items-start gap-3 text-base sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
+        <label class="flex items-start gap-3 text-lg sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
           <input type="radio" name="entry.996476507" value="No" required class="w-6 h-6 flex-shrink-0 mt-0.5 accent-primary" id="presenza-no">
           <span class="font-medium">Non potrò esserci</span>
         </label>
-        <label class="flex items-start gap-3 text-base sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
+        <label class="flex items-start gap-3 text-lg sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
           <input type="radio" name="entry.996476507" value="Non so ancora" required class="w-6 h-6 flex-shrink-0 mt-0.5 accent-primary" id="presenza-forse">
           <span class="font-medium">Non so ancora</span>
         </label>
@@ -316,15 +316,21 @@
     <div id="dettagli-presenza" class="space-y-6 hidden">
 
       <div>
-        <div class="flex items-center justify-between mb-2">
-          <span class="block font-serif font-semibold text-lg text-ink">Accompagnatori / figli</span>
-          <button type="button" id="add-guest"
-                  class="text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 rounded-lg border border-primary/40 min-h-[44px]">
-            + Aggiungi persona
-          </button>
-        </div>
-        <p class="text-sm text-ink/60 mb-3">Aggiungi un campo per ogni persona che verrà con te, figli inclusi.</p>
+        <span class="block font-serif font-semibold text-lg text-ink mb-2">Accompagnatori / figli</span>
+        <p class="text-sm text-ink/60 mb-3">Vieni con altre persone o con dei figli? Premi il pulsante qui sotto <strong>una volta per ogni persona</strong> da aggiungere.</p>
+        <button type="button" id="add-guest"
+                class="w-full flex items-center justify-center gap-2 text-base font-semibold text-white bg-primary hover:bg-ink transition-colors duration-200 cursor-pointer px-4 py-3 rounded-xl shadow-md min-h-[44px] mb-3">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5" aria-hidden="true">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          Aggiungi persona
+        </button>
         <div id="guest-list" class="space-y-3"></div>
+        <button type="button" id="add-guest-bottom"
+                class="hidden text-sm font-semibold text-primary hover:text-ink transition-colors duration-200 cursor-pointer px-3 py-2 rounded-lg border border-primary/40 min-h-[44px] mt-3">
+          + Aggiungi un'altra persona
+        </button>
       </div>
 
       <div>
@@ -578,6 +584,7 @@
     const dettagli = document.getElementById('dettagli-presenza');
     const guestList = document.getElementById('guest-list');
     const addGuestBtn = document.getElementById('add-guest');
+    const addGuestBtnBottom = document.getElementById('add-guest-bottom');
     const hiddenInputs = document.getElementById('guest-hidden-inputs');
     let guestCount = 0;
 
@@ -645,6 +652,7 @@
     function syncHiddenInputs() {
       hiddenInputs.innerHTML = '';
       const rows = guestList.querySelectorAll('[data-guest-id]');
+      addGuestBtnBottom.classList.toggle('hidden', rows.length === 0);
       const names = [];
       rows.forEach((row) => {
         const id = row.dataset.guestId;
@@ -673,6 +681,7 @@
     }
 
     addGuestBtn.addEventListener('click', addGuestRow);
+    addGuestBtnBottom.addEventListener('click', addGuestRow);
   })();
 
   // Copia rapida (IBAN / intestatario)
@@ -713,6 +722,12 @@
     setupCopyButton('copy-iban', 'iban-value', 'Copia IBAN');
     setupCopyButton('copy-intestatario', 'intestatario-value', 'Copia intestatario', 'Int.');
     setupCopyButton('copy-causale', 'causale-value', 'Copia causale');
+
+    if (document.getElementById('modal-copy-iban')) {
+      setupCopyButton('modal-copy-iban', 'modal-iban-value', 'Copia IBAN');
+      setupCopyButton('modal-copy-intestatario', 'modal-intestatario-value', 'Copia intestatario', 'Int.');
+      setupCopyButton('modal-copy-causale', 'modal-causale-value', 'Copia causale');
+    }
   })();
 
   // Feedback invio form (il submit reale avviene verso Google Form tramite iframe nascosto)
@@ -746,13 +761,24 @@
     });
   })();
 
-  // Setup copy buttons nel modal
+  // Hide CTA button when RSVP section is visible
   (function () {
-    if (document.getElementById('modal-copy-iban')) {
-      setupCopyButton('modal-copy-iban', 'modal-iban-value', 'Copia IBAN');
-      setupCopyButton('modal-copy-intestatario', 'modal-intestatario-value', 'Copia intestatario', 'Int.');
-      setupCopyButton('modal-copy-causale', 'modal-causale-value', 'Copia causale');
-    }
+    const ctaBtn = document.getElementById('cta-conferma');
+    const rsvpSection = document.getElementById('rsvp');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          ctaBtn.style.opacity = '0';
+          ctaBtn.style.pointerEvents = 'none';
+        } else {
+          ctaBtn.style.opacity = '1';
+          ctaBtn.style.pointerEvents = 'auto';
+        }
+      });
+    }, { threshold: 0 });
+
+    if (rsvpSection) observer.observe(rsvpSection);
   })();
 </script>
 
