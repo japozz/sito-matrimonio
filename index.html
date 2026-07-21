@@ -748,9 +748,11 @@
 
   // Setup copy buttons nel modal
   (function () {
-    setupCopyButton('modal-copy-iban', 'modal-iban-value', 'Copia IBAN');
-    setupCopyButton('modal-copy-intestatario', 'modal-intestatario-value', 'Copia intestatario', 'Int.');
-    setupCopyButton('modal-copy-causale', 'modal-causale-value', 'Copia causale');
+    if (document.getElementById('modal-copy-iban')) {
+      setupCopyButton('modal-copy-iban', 'modal-iban-value', 'Copia IBAN');
+      setupCopyButton('modal-copy-intestatario', 'modal-intestatario-value', 'Copia intestatario', 'Int.');
+      setupCopyButton('modal-copy-causale', 'modal-causale-value', 'Copia causale');
+    }
   })();
 </script>
 
