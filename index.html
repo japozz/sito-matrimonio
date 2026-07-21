@@ -401,17 +401,6 @@
         </svg>
       </button>
     </div>
-    <div class="flex items-center justify-center gap-2 flex-wrap mt-2">
-      <p class="text-base md:text-lg text-ink/80">Causale: <span id="causale-value" class="font-semibold">Regalo nozze Valeria e Jacopo</span></p>
-      <button type="button" id="copy-causale"
-              class="flex items-center justify-center text-primary/60 hover:text-primary rounded-lg transition-colors duration-200 cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
-              style="min-width:44px; min-height:44px;" aria-label="Copia causale" title="Copia causale">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" aria-hidden="true">
-          <rect x="9" y="9" width="13" height="13" rx="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-        </svg>
-      </button>
-    </div>
   </div>
 </footer>
 
@@ -665,13 +654,6 @@
 
     setupCopyButton('copy-iban', 'iban-value', 'Copia IBAN');
     setupCopyButton('copy-intestatario', 'intestatario-value', 'Copia intestatario', 'Int.');
-    setupCopyButton('copy-causale', 'causale-value', 'Copia causale');
-
-    if (document.getElementById('modal-copy-iban')) {
-      setupCopyButton('modal-copy-iban', 'modal-iban-value', 'Copia IBAN');
-      setupCopyButton('modal-copy-intestatario', 'modal-intestatario-value', 'Copia intestatario', 'Int.');
-      setupCopyButton('modal-copy-causale', 'modal-causale-value', 'Copia causale');
-    }
   })();
 
   // Feedback invio form (il submit reale avviene verso Google Form tramite iframe nascosto)
