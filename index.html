@@ -204,12 +204,7 @@
           <input type="radio" name="entry.996476507" value="No" required class="w-6 h-6 flex-shrink-0 mt-0.5 accent-primary" id="presenza-no">
           <span class="font-medium">Non potrò esserci</span>
         </label>
-        <label class="flex items-start gap-3 text-lg sm:text-lg cursor-pointer p-2 rounded-lg hover:bg-secondary/5 transition-colors flex-1 sm:flex-none border-2 border-transparent hover:border-secondary/20">
-          <input type="radio" name="entry.996476507" value="Non so ancora" required class="w-6 h-6 flex-shrink-0 mt-0.5 accent-primary" id="presenza-forse">
-          <span class="font-medium">Non so ancora</span>
-        </label>
       </div>
-      <p id="promemoria-forse" class="hidden mt-3 text-base font-semibold text-white bg-primary rounded-lg px-3 py-2">Per favore, ricordati di confermare la tua risposta definitiva entro il <u>10 agosto 2026</u>!</p>
     </fieldset>
 
     <div id="dettagli-presenza" class="space-y-6 hidden">
@@ -413,8 +408,6 @@
   (function () {
     const presenzaSi = document.getElementById('presenza-si');
     const presenzaNo = document.getElementById('presenza-no');
-    const presenzaForse = document.getElementById('presenza-forse');
-    const promemoriaForse = document.getElementById('promemoria-forse');
     const dettagli = document.getElementById('dettagli-presenza');
     const guestList = document.getElementById('guest-list');
     const addGuestBtn = document.getElementById('add-guest');
@@ -424,11 +417,9 @@
 
     function toggleDettagli() {
       dettagli.classList.toggle('hidden', !presenzaSi.checked);
-      promemoriaForse.classList.toggle('hidden', !presenzaForse.checked);
     }
     presenzaSi.addEventListener('change', toggleDettagli);
     presenzaNo.addEventListener('change', toggleDettagli);
-    presenzaForse.addEventListener('change', toggleDettagli);
 
     function addGuestRow() {
       guestCount++;
